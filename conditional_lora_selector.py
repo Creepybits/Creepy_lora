@@ -3,6 +3,8 @@ import folder_paths # ComfyUI utility for finding paths
 import comfy.sd # For load_lora_for_models
 import comfy.utils # For load_torch_file
 
+from nodes import LoraLoader
+
 # Helper function to get filenames recursively within a ComfyUI models subdirectory
 def get_recursive_filenames(folder_name):
     full_path_dir = folder_paths.get_folder_paths(folder_name)
@@ -130,10 +132,9 @@ class ConditionalLoRAApplierCreepybits:
 
                 # Use the comfy.sd.load_lora_for_models function directly!
                 # This function is confirmed to exist and be used by Comfyroll in your setup.
-                final_model, final_clip = comfy.sd.load_lora_for_models(
-                    final_model, final_clip, lora_data, lora_strength, clip_strength
-                )
-
+                #final_model, final_clip = comfy.sd.load_lora_for_models(final_model, final_clip, lora_data, lora_strength, clip_strength)
+                final_model, final_clip = LoraLoader().load_lora(final_model, final_clip, lora_filename, lora_strength, clip_strength)
+                
                 print(f"Successfully applied LoRA: {lora_filename}")
             except Exception as e:
                 print(f"FATAL ERROR applying LoRA '{lora_filename}': {e}. Skipping this LoRA.")
