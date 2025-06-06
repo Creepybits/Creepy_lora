@@ -1,3 +1,3 @@
-# ONLY FOR TESTING AT THE MOMENT  
+# ARCHIVED 
 
-## NOTE: the official creepy nodes need to be installed as well: [Creepy Nodes](https://github.com/Creepybits/ComfyUI-Creepy_nodes)  
+## NOTE: The node has been incorporated in the: [Creepy Nodes](https://github.com/Creepybits/ComfyUI-Creepy_nodes)  
